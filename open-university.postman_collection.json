@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \r\n}",
+							"raw": "{\r\n    \"name\": \"Natraj\",\r\n    \"dateOfBirth\": 1658118829000,\r\n    \"actorType\": \"FACULTY\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -59,7 +59,19 @@
 					"name": "get actor by id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7001/actors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"actors",
+								"2"
+							]
+						}
 					},
 					"response": []
 				},
@@ -67,12 +79,87 @@
 					"name": "update actor",
 					"request": {
 						"method": "PATCH",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Natraj\",\r\n    \"actorType\": \"FACULTY\",\r\n    \"dateOfBirth\": 1658119129000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7001/actors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"actors",
+								"2"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7001/actors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "revenue",
+			"item": [
+				{
+					"name": "create counter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"STUDENT_FEES\",\r\n    \"value\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7002/revenue/counters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7002",
+							"path": [
+								"revenue",
+								"counters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get counter value",
 					"request": {
 						"method": "GET",
 						"header": []

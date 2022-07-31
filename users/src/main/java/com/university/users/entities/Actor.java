@@ -35,6 +35,12 @@ public class Actor implements Serializable {
     @Column(name="date_of_birth")
     private Timestamp dateOfBirth;
 
+    @Column(name="salary", nullable = true)
+    private int salary;
+
+    @Column(name="fees", nullable = true)
+    private int fees;
+
     @Column(name="created_at")
     private Timestamp createdAt;
 
@@ -56,6 +62,8 @@ public class Actor implements Serializable {
         this.name = actorDTO.getName();
         this.actorType = ActorTypes.valueOf(actorDTO.getActorType());
         this.dateOfBirth = new Timestamp(actorDTO.getDateOfBirth());
+        this.fees = actorDTO.getFees();
+        this.salary = actorDTO.getSalary();
     }
 
 }

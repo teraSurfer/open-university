@@ -58,6 +58,8 @@ public class ActorService {
             actorInDb.setName(actor.getName());
             actorInDb.setDateOfBirth(actor.getDateOfBirth());
             actorInDb.setActorType(actor.getActorType());
+            actorInDb.setFees(actor.getFees());
+            actorInDb.setSalary(actor.getSalary());
             actorRepository.save(actorInDb);
             return actorInDb;
         } catch (Exception e) {

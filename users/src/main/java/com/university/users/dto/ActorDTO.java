@@ -19,4 +19,8 @@ public class ActorDTO {
 
     @NotNull
     private long dateOfBirth;
+
+    private int salary;
+
+    private int fees;
 }

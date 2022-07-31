@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.university.users.producers.ActorProducerService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -28,6 +29,9 @@ public class ActorController {
 
     @Autowired
     ActorService actorService;
+
+    @Autowired
+    ActorProducerService actorProducerService;
 
     @GetMapping("")
     public ResponseEntity<List<Actor>> getActors() {
@@ -53,6 +57,7 @@ public class ActorController {
     public ResponseEntity<Actor> createActor(@RequestBody @Valid ActorDTO actorDTO) {
         log.info("request body - {}, {}, {}", actorDTO.getName(), actorDTO.getDateOfBirth(), actorDTO.getActorType());
         Actor createdActor = actorService.createActor(new Actor(actorDTO));
+        actorProducerService.sendMessage(createdActor);
         return new ResponseEntity<>(createdActor, HttpStatus.CREATED);
     }
 
